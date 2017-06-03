@@ -1,0 +1,8 @@
+[package]
+name = "RustBlog"
+version = "0.1.0"
+authors = ["hiimtaylorjones <taylorjonessoftware@gmail.com>"]
+
+[dependencies]
+rocket = "0.2.8"
+rocket_codegen = "0.2.8"
