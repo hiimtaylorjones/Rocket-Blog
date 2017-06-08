@@ -1,0 +1,1 @@
+FROM liuchong/rustup:nightly
