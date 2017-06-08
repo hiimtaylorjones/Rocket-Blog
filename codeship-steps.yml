@@ -1,0 +1,5 @@
+- type: parallel
+  encrypted_dockercfg_path: dockercfg.encrypted
+  steps:
+  - service: app
+    command: cargo test

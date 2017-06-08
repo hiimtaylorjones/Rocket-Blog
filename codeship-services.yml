@@ -1,11 +1,10 @@
 app:
   build:
-    image: flomotlik/discourse
+    image: liuchong/rustup:nightly
     dockerfile_path: Dockerfile
   environment:
   links:
     - postgresql
-    - redis
   cached: true
   volumes:
     - ./:/code
