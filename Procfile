@@ -1,1 +1,1 @@
-web: ./target/release/rustblog
+web: ./target/release/rust_blog
