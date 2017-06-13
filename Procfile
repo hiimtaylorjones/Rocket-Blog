@@ -1,1 +1,1 @@
-cargo run
+web: ./target/release/rustblog
