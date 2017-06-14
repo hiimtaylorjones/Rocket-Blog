@@ -1,1 +1,1 @@
-web: ./target/release/rust_blog
+web: cargo run
