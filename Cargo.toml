@@ -4,5 +4,5 @@ version = "0.1.0"
 authors = ["hiimtaylorjones <taylorjonessoftware@gmail.com>"]
 
 [dependencies]
-rocket = { version = "0.2.8", features = ["testing"] }
-rocket_codegen = "0.2.8"
+rocket = { git = "https://github.com/SergioBenitez/Rocket.git" }
+rocket_codegen = "*"
