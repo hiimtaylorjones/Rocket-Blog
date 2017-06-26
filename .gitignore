@@ -1,3 +1,5 @@
 /target/
 **/*.rs.bk
 Cargo.lock
+codeship.aes
+deployment.env
