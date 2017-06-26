@@ -2,14 +2,8 @@ app:
   build:
     image: liuchong/rustup:nightly
     dockerfile_path: Dockerfile
-  environment:
-  links:
-    - postgresql
-  cached: true
   volumes:
     - ./:/code
-postgresql:
-  image: postgres:9.3.6
 deploy:
     image: codeship/heroku-deployment
     encrypted_env_file: deployment.env.encrypted
