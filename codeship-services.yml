@@ -10,3 +10,8 @@ app:
     - ./:/code
 postgresql:
   image: postgres:9.3.6
+deploy:
+    image: codeship/heroku-deployment
+    encrypted_env_file: deployment.env.encrypted
+    volumes:
+      - ./:/deploy

@@ -4,4 +4,4 @@
 - name: deploy
   tag: master
   service: deploy
-  command: codeship_heroku deploy /deploy ROCKET_PORT=$PORT ROCKET_ENV=prod ./target/release/rust_blog
+  command: codeship_heroku deploy /deploy rust_blog
