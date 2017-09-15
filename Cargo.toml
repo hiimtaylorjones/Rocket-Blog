@@ -4,5 +4,6 @@ version = "0.1.0"
 authors = ["hiimtaylorjones <taylorjonessoftware@gmail.com>"]
 
 [dependencies]
-rocket = { version = "0.2.8", features = ["testing"] }
-rocket_codegen = "0.2.8"
+rocket = "0.3.2"
+rocket_codegen = "0.3.2"
+diesel = "0.16.0"
