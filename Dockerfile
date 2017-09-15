@@ -9,3 +9,4 @@ COPY Cargo.toml ./Cargo.toml
 COPY src ./src
 
 RUN cargo build
+RUN cargo install diesel_cli --no-default-features --features postgres
