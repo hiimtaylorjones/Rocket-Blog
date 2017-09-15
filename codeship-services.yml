@@ -1,9 +1,16 @@
 app:
-  build:
-    image: liuchong/rustup:nightly
-    dockerfile_path: Dockerfile
+  build: ./
+  links:
+    - postgres
+  environment:
+    DATABASE_URL: postgres://rust_blog@postgres/rust_blog
   volumes:
     - ./:/code
+postgres:
+  image: postgres:9.6.2-alpine
+  environment:
+    POSTGRES_USER: rust_blog
+    POSTGRES_DB: rust_blog
 deploy:
     image: codeship/heroku-deployment
     encrypted_env_file: deployment.env.encrypted

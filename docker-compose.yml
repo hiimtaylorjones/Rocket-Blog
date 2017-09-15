@@ -1,0 +1,18 @@
+version: '2'
+services:
+  web:
+    build: .
+    command: cargo run
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://rust_blog@postgres/rust_blog
+  postgres:
+    image: postgres:9.6.2-alpine
+    environment:
+      POSTGRES_USER: rust_blog
+      POSTGRES_DB: rust_blog
