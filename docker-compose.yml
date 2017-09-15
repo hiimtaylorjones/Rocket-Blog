@@ -6,10 +6,12 @@ services:
     volumes:
       - .:/app
     ports:
-      - "8000:8000"
+      - "3000:3000"
     depends_on:
       - postgres
     environment:
+      ROCKET_ADDRESS: 0.0.0.0
+      ROCKET_PORT: 3000
       DATABASE_URL: postgres://rust_blog@postgres/rust_blog
   postgres:
     image: postgres:9.6.2-alpine

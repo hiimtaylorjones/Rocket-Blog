@@ -9,5 +9,3 @@ COPY Cargo.toml ./Cargo.toml
 COPY src ./src
 
 RUN cargo build
-
-WORKDIR /code
