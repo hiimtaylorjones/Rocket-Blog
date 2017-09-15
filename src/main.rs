@@ -15,17 +15,15 @@ fn main() {
 #[cfg(test)]
 mod test {
     use super::rocket;
-    use rocket::testing::MockRequest;
-    use rocket::http::{Status, Method};
+    use rocket::local::Client;
+    use rocket::http::Status;
 
     #[test]
     fn index() {
         let rocket = rocket::ignite().mount("/", routes![super::index]);
-        let mut req = MockRequest::new(Method::Get, "/");
-        let mut response = req.dispatch_with(&rocket);
+        let client = Client::new(rocket).expect("valid rocket instance");
+        let mut response = client.get("/").dispatch();
         assert_eq!(response.status(), Status::Ok);
-
-        let body_str = response.body().and_then(|b| b.into_string());
-        assert_eq!(body_str, Some("Hello, world!".to_string()));
+        assert_eq!(response.body_string(), Some("Hello, world!".into()));
     }
 }
