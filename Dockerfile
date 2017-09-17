@@ -7,6 +7,7 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY Cargo.toml ./Cargo.toml
 COPY src ./src
+COPY .env ./.env
 
 RUN cargo build
 RUN cargo install diesel_cli --no-default-features --features postgres
