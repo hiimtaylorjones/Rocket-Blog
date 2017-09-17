@@ -1,7 +1,10 @@
 #![feature(plugin)]
 #![plugin(rocket_codegen)]
 
+extern crate rust_blog;
 extern crate rocket;
+
+use rust_blog::*;
 
 #[get("/")]
 fn index() -> &'static str {
@@ -9,6 +12,7 @@ fn index() -> &'static str {
 }
 
 fn main() {
+    let connection = establish_connection();
     rocket::ignite().mount("/", routes![index]).launch();
 }
 
