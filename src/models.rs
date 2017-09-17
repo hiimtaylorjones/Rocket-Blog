@@ -1,23 +1,16 @@
-#[derive(Debug, PartialEq, Eq, Serialize, Queryable)]
-pub struct Post {
-    id: i64,
-    title: String,
-    body: String,
-}
+use super::schema::posts;
 
-#[derive(Debug, Insertable, FromForm, AsChangeset)]
+#[derive(Insertable)]
 #[table_name="posts"]
-pub struct PostForm {
-    title: String,
-    body: String,
+pub struct NewPost<'a> {
+    pub title: &'a str,
+    pub body: &'a str,
 }
 
-impl Post {
-    pub fn new(id: i64, title: &str, body: &str) -> Self {
-        Post {
-            id: id,
-            title: title.into(),
-            body: body.into(),
-        }
-    }
+#[derive(Queryable)]
+pub struct Post {
+    pub id: i32,
+    pub title: String,
+    pub body: String,
+    pub published: bool,
 }

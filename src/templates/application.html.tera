@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% if title is defined %}
+        {{ title }}
+      {% else %}
+        My Blog
+      {% endif %}
+    </title>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div class="content">
+      <img src="/images/rust-logo.png" class="main-logo"></img>
+      <h1><a href="/" id="main-title">Orlando.rs</a></h1>
+      <div class="navbar">
+        <ul>
+          <li>Item</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="inner-content">
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
+  </body>
+</html>

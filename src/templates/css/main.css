@@ -1,0 +1,49 @@
+.content {
+  background: white;
+}
+
+.inner-content {
+  margin: 2.5%;
+}
+
+.inner-content a {
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+}
+
+
+#main-title {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.main-logo {
+  width: 40%;
+  height: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar ul li {
+  float: left;
+}
+
+.navbar ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    background-color: #111;
+}
