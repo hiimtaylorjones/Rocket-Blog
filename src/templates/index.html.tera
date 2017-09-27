@@ -1,4 +1,0 @@
-{% extends "application.html.tera" %}
-{% block content %}
-  <h1>Orlando.rs is a thing.</h1>
-{% endblock content %}
