@@ -1,15 +1,13 @@
-#![feature(plugin, custom_derive)]
-#![plugin(rocket_codegen)]
-
 #[macro_use] extern crate diesel;
+#[macro_use] extern crate diesel_codegen;
 extern crate dotenv;
 
-pub mod schema;
-
 use diesel::prelude::*;
-use diesel::pg::PgConnection;
 use dotenv::dotenv;
 use std::env;
+
+pub mod schema;
+pub mod models;
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
