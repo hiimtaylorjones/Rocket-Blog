@@ -7,7 +7,7 @@ pub struct NewPost<'a> {
     pub body: &'a str,
 }
 
-#[derive(Queryable)]
+#[derive(Queryable, Serialize)]
 pub struct Post {
     pub id: i32,
     pub title: String,
