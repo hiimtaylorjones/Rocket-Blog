@@ -1,6 +1,6 @@
 - name: rust
   service: app
-  command: cargo test
+  command: cargo build
 - name: deploy
   tag: master
   service: deploy
