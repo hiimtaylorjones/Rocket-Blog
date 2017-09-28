@@ -7,15 +7,21 @@ extern crate diesel;
 extern crate rocket_contrib;
 #[macro_use] extern crate serde_derive;
 
+// Rust Usage
+// use std::collections::HashMap;
+
+// Diesel Usage
 use diesel::prelude::*;
+
+// Library Usage
 use rust_blog::*;
 use rust_blog::schema::posts;
 use rust_blog::models::{Post};
+
+// Rocket Usage
 use rocket_contrib::Template;
 // use rocket::response::Redirect;
 // use rocket::request::Form;
-
-mod static_files;
 
 #[get("/")]
 fn index() -> Template {
@@ -27,7 +33,7 @@ fn index() -> Template {
 
 fn rocket() -> rocket::Rocket {
     rocket::ignite()
-        .mount("/", routes![index, static_files::all])
+        .mount("/", routes![index])
         .attach(Template::fairing())
 }
 

@@ -6,6 +6,7 @@ RUN apt-get update && \
 RUN mkdir -p /app
 WORKDIR /app
 COPY Cargo.toml ./Cargo.toml
+COPY Rocket.toml ./Rocket.toml
 COPY src ./src
 COPY templates ./templates
 COPY .env ./.env

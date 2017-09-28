@@ -5,6 +5,10 @@
     <title>Handlebars Demo</title>
   </head>
   <body>
-    
+    <h2>Posts</h2>
+    {{#each posts}}
+      <p>Post</p>
+      {{this}}
+    {{/each}}
   </body>
 </html>
