@@ -1,4 +1,7 @@
-- name: rust
+- name: migrate
+  service: app
+  command: diesel migration run
+- name: build
   service: app
   command: cargo build
 - name: deploy

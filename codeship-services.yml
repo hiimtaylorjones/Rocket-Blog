@@ -4,8 +4,6 @@ app:
     dockerfile: CodeshipDockerfile
   links:
     - postgres
-  environment:
-    DATABASE_URL: postgres://rust_blog@postgres/rust_blog
   volumes:
     - .:/app
 postgres:
