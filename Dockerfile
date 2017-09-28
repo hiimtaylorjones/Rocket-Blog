@@ -11,5 +11,4 @@ COPY src ./src
 COPY templates ./templates
 COPY .env ./.env
 
-RUN rustup update && cargo update
 RUN cargo install diesel_cli --no-default-features --features postgres
