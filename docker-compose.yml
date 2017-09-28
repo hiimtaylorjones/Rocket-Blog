@@ -12,9 +12,12 @@ services:
     environment:
       ROCKET_ADDRESS: 0.0.0.0
       ROCKET_PORT: 3000
-      DATABASE_URL: postgres://rust_blog@postgres/rust_blog
   postgres:
     image: postgres:9.6.2-alpine
+    ports:
+      # We'll bind our host's port 5432 to postgres's port 5432, so we can use
+      # our database IDEs with it:
+      - 5432:5432
     environment:
       POSTGRES_USER: rust_blog
       POSTGRES_DB: rust_blog

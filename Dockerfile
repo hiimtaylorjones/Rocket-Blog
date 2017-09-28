@@ -6,6 +6,10 @@ RUN apt-get update && \
 RUN mkdir -p /app
 WORKDIR /app
 COPY Cargo.toml ./Cargo.toml
+COPY Rocket.toml ./Rocket.toml
 COPY src ./src
+COPY templates ./templates
+COPY .env ./.env
 
-RUN cargo build
+RUN rustup update && cargo update
+RUN cargo install diesel_cli --no-default-features --features postgres
