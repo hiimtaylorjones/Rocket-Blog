@@ -6,7 +6,7 @@ authors = ["hiimtaylorjones <taylorjonessoftware@gmail.com>"]
 [dependencies]
 rocket = "0.3.2"
 rocket_codegen = "0.3.2"
-rocket_contrib = { version = "0.3.2", features = ["tera_templates"] }
+rocket_contrib = { version = "0.3.2", features = ["handlebars_templates"] }
 diesel = { version = "0.16.0", features = ["postgres"] }
 diesel_codegen = { version = "0.16.0", features = ["postgres"] }
 dotenv = "0.10.1"
