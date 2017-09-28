@@ -15,8 +15,6 @@ use rocket_contrib::Template;
 // use rocket::response::Redirect;
 // use rocket::request::Form;
 
-mod static_files;
-
 #[get("/")]
 fn index() -> Template {
     let connection = establish_connection();
@@ -27,7 +25,7 @@ fn index() -> Template {
 
 fn rocket() -> rocket::Rocket {
     rocket::ignite()
-        .mount("/", routes![index, static_files::all])
+        .mount("/", routes![index])
         .attach(Template::fairing())
 }
 
