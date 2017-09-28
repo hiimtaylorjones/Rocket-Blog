@@ -7,6 +7,7 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY Cargo.toml ./Cargo.toml
 COPY Rocket.toml ./Rocket.toml
+COPY migrations ./migrations
 COPY src ./src
 COPY templates ./templates
 COPY .env ./.env

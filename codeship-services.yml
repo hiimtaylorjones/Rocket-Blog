@@ -1,5 +1,7 @@
 app:
-  build: ./codeship
+  build:
+    image: myapp
+    dockerfile: CodeshipDockerfile
   links:
     - postgres
   environment:

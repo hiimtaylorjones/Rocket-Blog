@@ -8,8 +8,8 @@ WORKDIR /app
 COPY Cargo.toml ./Cargo.toml
 COPY Rocket.toml ./Rocket.toml
 COPY src ./src
+COPY migrations ./migrations
 COPY templates ./templates
 COPY .env ./.env
 
-RUN cargo build
 RUN cargo install diesel_cli --no-default-features --features postgres
