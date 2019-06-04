@@ -36,6 +36,8 @@ struct TemplateContext {
 #[get("/")]
 fn index() -> Template {
     let connection = establish_connection();
+    create_post(&connection, "Test Post 1", "Test Post Body 2");
+    create_post(&connection, "Test Post 1", "Test Post Body 2");
     let posts = posts::table.load::<Post>(&connection)
         .expect("Failed to load posts");
     Template::render("index", &TemplateContext {

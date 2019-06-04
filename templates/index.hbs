@@ -7,8 +7,8 @@
   <body>
     <h2>Posts</h2>
     {{#each posts}}
-      <p>Post</p>
-      {{this}}
+      <h3>{{this.title}}</h3>
+      <p>{{this.body}}</p>
     {{/each}}
   </body>
 </html>
