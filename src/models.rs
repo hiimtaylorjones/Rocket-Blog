@@ -1,4 +1,4 @@
-use super::schema::posts;
+use schema::posts;
 
 #[derive(Insertable)]
 #[table_name="posts"]
@@ -7,7 +7,7 @@ pub struct NewPost<'a> {
     pub body: &'a str,
 }
 
-#[derive(Queryable, Serialize)]
+#[derive(Queryable)]
 pub struct Post {
     pub id: i32,
     pub title: String,

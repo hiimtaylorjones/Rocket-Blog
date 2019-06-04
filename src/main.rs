@@ -1,11 +1,6 @@
-#![feature(plugin)]
-#![plugin(rocket_codegen)]
-
 extern crate rust_blog;
 extern crate rocket;
 extern crate diesel;
-extern crate rocket_contrib;
-#[macro_use] extern crate serde_derive;
 
 // Rust Usage
 // use std::collections::HashMap;
