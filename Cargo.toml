@@ -4,8 +4,17 @@ version = "0.1.0"
 authors = ["hiimtaylorjones <taylorjonessoftware@gmail.com>"]
 
 [dependencies]
-rocket = "0.4.0"
 diesel = { version = "1.0.0", features = ["postgres"] }
 dotenv = "0.10.1"
+
+# Rocket dependencies
+rocket = "0.4.0"
+
 serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0.3"
+serde_derive = "1.0"
+serde_json = "1.0"
+
+[dependencies.rocket_contrib]
+rocket_contrib = "0.4.0"
+default-features = false
+features = ["handlebars_templates"]
