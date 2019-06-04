@@ -28,7 +28,7 @@ use handlebars::{Helper, Handlebars, Context, RenderContext, Output, HelperResul
 struct TemplateContext {
     title: &'static str,
     name: Option<String>,
-    items: Vec<Post>,
+    posts: Vec<Post>,
     // This key tells handlebars which template is the parent.
     parent: &'static str,
 }
@@ -41,7 +41,7 @@ fn index() -> Template {
     Template::render("index", &TemplateContext {
         title: "Post Index",
         name: None,
-        items: posts,
+        posts: posts,
         parent: "layout"
     })
 }
