@@ -2,20 +2,18 @@
 A Rust Based Blog made with Rocket!
 
 
+## Requirements
+
+* Rust Nightly
+* Postgres
+* A Heroku Account
+* A little bit of patience 
+
 ## Setup
 
-### Docker
-
-This project is dockerized and ready for portability. However, there's a certain flow you'll
-need to follow to configure the application properly.
-
-First up, create the docker containers:
-
 ```
-docker-compose build web
+cargo build
 ```
-
-This will create and configure the Docker containers needed to help the app run.
 
 ### Diesel
 
@@ -24,13 +22,13 @@ To accomplish this, we needed to build our containers first. To actually start m
 itself, run:
 
 ```
-docker-compose run web diesel setup
+ diesel setup
 ```
 
 This will configure all of our database concerns. You may also have to run:
 
 ```
-docker-compose run web diesel migration run
+diesel migration run
 ```
 
 to properly migrate all pending database concerns.
@@ -40,9 +38,9 @@ to properly migrate all pending database concerns.
 To launch the web app locally, you simply can run:
 
 ```
-docker-compose up
+cargo run
 ```
 
-This will orchestrate all of our elements together and create a functional app
-environment.
+## Deploying to Heroku
+
 
