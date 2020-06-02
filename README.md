@@ -43,6 +43,8 @@ cargo run
 
 ## Deploying to Heroku
 
+### Via Heroku stacks and Buildpacks
+
 Once you have the repo downloaded, you'll want to run the following:
 
 ```
@@ -51,3 +53,6 @@ heroku addons:create heroku-postgresql:hobby-dev
 ```
 
 This will create a new Heroku app and install the [Heroku Rust Buildpack](https://github.com/emk/heroku-buildpack-rust). It will also provision a free version of Heroku Postgres - which we need for a database url. Right now, we need to install the `master` branch of the buildpack in order for Diesel to work properly.
+
+### Via Dockerfile
+
