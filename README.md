@@ -17,6 +17,13 @@ cargo build
 
 ### Diesel
 
+Since we're only using Postgres here, you'll want to install the Diesel CLI with
+just Postgres.
+
+```
+ cargo install diesel_cli --no-default-features --features postgres
+```
+
 Diesel requires a live Postgres installation to run commands and configuration against.
 To accomplish this, we needed to build our containers first. To actually start modeling the database
 itself, run:
