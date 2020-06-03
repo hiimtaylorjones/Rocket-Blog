@@ -25,25 +25,46 @@ use rocket_contrib::templates::{Template, handlebars};
 use handlebars::{Helper, Handlebars, Context, RenderContext, Output, HelperResult, JsonRender};
 
 #[derive(Serialize)]
-struct TemplateContext {
+struct PostsTemplateContext {
     title: &'static str,
     name: Option<String>,
     posts: Vec<Post>,
-    // This key tells handlebars which template is the parent.
+    parent: &'static str,
+}
+
+#[derive(Serialize)]
+struct PostTemplateContext {
+    title: &'static str,
+    name: Option<String>,
+    post: Vec<Post>,
     parent: &'static str,
 }
 
 #[get("/")]
 fn index() -> Template {
     let connection = establish_connection();
-    create_post(&connection, "Test Post 1", "Test Post Body 2");
-    create_post(&connection, "Test Post 1", "Test Post Body 2");
     let posts = posts::table.load::<Post>(&connection)
         .expect("Failed to load posts");
-    Template::render("index", &TemplateContext {
+    Template::render("index", &PostsTemplateContext {
         title: "Post Index",
         name: None,
         posts: posts,
+        parent: "layout"
+    })
+}
+
+#[get("/posts/<id>")]
+fn find_post(id: i32) -> Template {
+    use self::schema::posts::dsl::*;
+    let connection = establish_connection();
+
+    let post = posts.find(id)
+        .load::<Post>(&connection)
+        .expect("Error loading posts");
+    Template::render("show_post", &PostTemplateContext {
+        title: "Post",
+        name: None,
+        post: post,
         parent: "layout"
     })
 }
@@ -57,7 +78,7 @@ fn not_found(req: &Request) -> Template {
 
 fn rocket() -> rocket::Rocket {
     rocket::ignite()
-        .mount("/", routes![index])
+        .mount("/", routes![index, find_post])
         .register(catchers![not_found])
         .attach(Template::fairing())
 }

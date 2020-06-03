@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Handlebars Demo</title>
+  </head>
+  <body>
+    <h2>Posts</h2>
+    {{#each posts}}
+      <h3>{{this.title}}</h3>
+      <p>{{this.body}}</p>
+    {{/each}}
+  </body>
+</html>
