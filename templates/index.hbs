@@ -1,6 +1,19 @@
 <h2>Posts</h2>
-{{#each posts}}
-  <h3>{{this.title}}</h3>
-  <p>{{this.body}}</p>
-{{/each}}
+
+<table>
+  <thead>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Body</th>
+  </thead>
+  <tbody>
+    {{#each posts}}
+      <tr>
+        <td>{{this.id}}</td>
+        <td>{{this.title}}</td>
+        <td>{{this.body}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
 

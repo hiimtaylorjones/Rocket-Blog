@@ -60,7 +60,7 @@ fn index() -> Template {
 
 #[get("/posts/<post_id>")]
 fn find_post(post_id: String) -> Template {
-
+    
     use self::schema::posts::dsl::*;
     let connection = establish_connection();
 
