@@ -13,7 +13,7 @@ extern crate rocket_contrib;
 // Diesel Usage
 use diesel::prelude::*;
 
-// Library Usage
+// Internal Library Usage
 use rust_blog::*;
 use rust_blog::schema::posts;
 use rust_blog::models::{Post};
@@ -21,7 +21,12 @@ use rust_blog::models::{Post};
 // Rocket Usage
 use rocket::Request;
 use rocket::response::Redirect;
+use rocket::request::FromParam;
+use rocket::http::RawStr;
+
 use rocket_contrib::templates::{Template, handlebars};
+
+// Handlebars
 use handlebars::{Helper, Handlebars, Context, RenderContext, Output, HelperResult, JsonRender};
 
 #[derive(Serialize)]
@@ -54,11 +59,13 @@ fn index() -> Template {
 }
 
 #[get("/posts/<id>")]
-fn find_post(id: i32) -> Template {
+fn find_post(id: &RawStr) -> Template {
+    let post_id = id;
+
     use self::schema::posts::dsl::*;
     let connection = establish_connection();
 
-    let post = posts.find(id)
+    let post = posts.find(post_id)
         .load::<Post>(&connection)
         .expect("Error loading posts");
     Template::render("show_post", &PostTemplateContext {

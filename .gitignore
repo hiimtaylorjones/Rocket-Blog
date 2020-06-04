@@ -4,3 +4,4 @@ Cargo.lock
 codeship.aes
 deployment.env
 .env
+.vscode/
