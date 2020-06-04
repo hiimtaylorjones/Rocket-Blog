@@ -8,7 +8,7 @@
       "type": "lldb",
         "request": "launch",
         "name": "Debug",
-        "program": "${workspaceRoot}/target/debug/${workspaceRootFolderName}",
+        "program": "${workspaceRoot}/target/debug/rust_blog",
         "args": [],
         "cwd": "${workspaceRoot}",
         "sourceLanguages": ["rust"]

@@ -58,14 +58,15 @@ fn index() -> Template {
     })
 }
 
-#[get("/posts/<id>")]
-fn find_post(id: &RawStr) -> Template {
-    let post_id = id;
+#[get("/posts/<post_id>")]
+fn find_post(post_id: String) -> Template {
 
     use self::schema::posts::dsl::*;
     let connection = establish_connection();
 
-    let post = posts.find(post_id)
+    let post_id_unwrapped: i32 = post_id.parse().unwrap();
+
+    let post = posts.find(post_id_unwrapped)
         .load::<Post>(&connection)
         .expect("Error loading posts");
     Template::render("show_post", &PostTemplateContext {
